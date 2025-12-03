@@ -2,6 +2,8 @@ package com.wilker.produto_api.infrastructure.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Getter
@@ -24,7 +26,7 @@ public class ProdutoEntity {
     private String descricao;
 
     @Column(name = "preco")
-    private String preco;
+    private BigDecimal preco;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", nullable = false)
