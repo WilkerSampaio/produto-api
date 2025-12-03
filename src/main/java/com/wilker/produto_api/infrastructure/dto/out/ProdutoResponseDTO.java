@@ -1,6 +1,5 @@
 package com.wilker.produto_api.infrastructure.dto.out;
 
-import com.wilker.produto_api.infrastructure.entity.CategoriaEntity;
 import lombok.Builder;
 
 import java.math.BigDecimal;
@@ -12,6 +11,6 @@ public record ProdutoResponseDTO(
         String nome,
         String descricao,
         BigDecimal preco,
-        CategoriaEntity categoria
+        Long idCategoria
 ) {
 }
