@@ -2,7 +2,9 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '4.0.0'
 	id 'io.spring.dependency-management' version '1.1.7'
-	id "org.sonarqube" version "7.1.0.6387"}
+	id "org.sonarqube" version "7.1.0.6387"
+	id 'jacoco'
+}
 
 group = 'com.wilker'
 version = '0.0.1-SNAPSHOT'
@@ -39,9 +41,23 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+jacoco {
+	toolVersion = "0.8.10"
+}
+
+tasks.jacocoTestReport {
+	dependsOn tasks.test
+	reports {
+		xml.required.set(true)   // necessário para SonarQube
+		csv.required.set(false)
+		html.required.set(true)  // relatório visual
+	}
+}
+
 sonar {
 	properties {
 		property "sonar.projectKey", "wilkersampaio_produto-api"
 		property "sonar.organization", "wilkersampaio"
+		property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
 	}
 }
