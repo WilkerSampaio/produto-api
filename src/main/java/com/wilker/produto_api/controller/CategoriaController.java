@@ -1,9 +1,7 @@
 package com.wilker.produto_api.controller;
 
 import com.wilker.produto_api.infrastructure.dto.in.CategoriaRequestDTO;
-import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseDTO;
 import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseProdutoDTO;
-import com.wilker.produto_api.infrastructure.repository.CategoriaRepository;
 import com.wilker.produto_api.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
