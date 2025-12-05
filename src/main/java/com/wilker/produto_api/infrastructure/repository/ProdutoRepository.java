@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<ProdutoEntity, Long> {
+public interface ProdutoRepository extends JpaRepository<ProdutoEntity, Long> {
 
     Optional<ProdutoEntity> findById(Long id);
 

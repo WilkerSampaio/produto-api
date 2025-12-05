@@ -21,7 +21,7 @@ public class CategoriaEntity {
     @Column(name = "nome", length = 155)
     private String nome;
 
-    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<ProdutoEntity> produtos;
 
     @Override
