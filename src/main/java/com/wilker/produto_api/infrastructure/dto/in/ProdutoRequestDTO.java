@@ -2,12 +2,14 @@ package com.wilker.produto_api.infrastructure.dto.in;
 
 import lombok.Builder;
 
+import java.math.BigDecimal;
+
 @Builder
 public record ProdutoRequestDTO(
 
         String nome,
         String descricao,
-        String preco,
+        BigDecimal preco,
         Long idCategoria
 ) {
 }

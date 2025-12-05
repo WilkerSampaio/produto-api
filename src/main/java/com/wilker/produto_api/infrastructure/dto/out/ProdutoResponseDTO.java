@@ -11,6 +11,6 @@ public record ProdutoResponseDTO(
         String nome,
         String descricao,
         BigDecimal preco,
-        Long idCategoria
+        CategoriaResponseProdutoDTO categoria
 ) {
 }
