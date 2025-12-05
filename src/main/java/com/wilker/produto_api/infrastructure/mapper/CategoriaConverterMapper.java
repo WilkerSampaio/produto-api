@@ -2,6 +2,7 @@ package com.wilker.produto_api.infrastructure.mapper;
 
 import com.wilker.produto_api.infrastructure.dto.in.CategoriaRequestDTO;
 import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseDTO;
+import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseProdutoDTO;
 import com.wilker.produto_api.infrastructure.entity.CategoriaEntity;
 import com.wilker.produto_api.infrastructure.entity.ProdutoEntity;
 import org.mapstruct.Mapper;
@@ -18,6 +19,7 @@ public interface CategoriaConverterMapper {
     @Mapping(target = "produtos", ignore = true)
     CategoriaEntity paraCategoriaEntity(CategoriaRequestDTO categoriaRequestDTO);
 
+    CategoriaResponseProdutoDTO paraCategoriaResponseProduto(CategoriaEntity categoriaEntity);
 
     @Mapping(target = "idsProdutos", source = "produtos")
     CategoriaResponseDTO paraCategoriaResponse(CategoriaEntity categoriaEntity);
