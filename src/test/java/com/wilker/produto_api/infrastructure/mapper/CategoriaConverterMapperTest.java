@@ -14,7 +14,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CategoriaConverterMapperTest {
+class CategoriaConverterMapperTest {
 
     private CategoriaConverterMapper categoriaConverterMapper;
 
