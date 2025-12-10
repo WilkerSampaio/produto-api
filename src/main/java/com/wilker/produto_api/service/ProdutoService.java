@@ -1,11 +1,10 @@
 package com.wilker.produto_api.service;
 
-import com.wilker.produto_api.infrastructure.ResourceNotFoundException;
+import com.wilker.produto_api.infrastructure.exception.ResourceNotFoundException;
 import com.wilker.produto_api.infrastructure.dto.in.ProdutoRequestDTO;
 import com.wilker.produto_api.infrastructure.dto.out.ProdutoResponseDTO;
 import com.wilker.produto_api.infrastructure.entity.CategoriaEntity;
 import com.wilker.produto_api.infrastructure.entity.ProdutoEntity;
-import com.wilker.produto_api.infrastructure.mapper.CategoriaConverterMapper; // Mantido, mas não usado diretamente no fluxo principal
 import com.wilker.produto_api.infrastructure.mapper.ProdutoConverterMapper;
 import com.wilker.produto_api.infrastructure.repository.CategoriaRepository;
 import com.wilker.produto_api.infrastructure.repository.ProdutoRepository;
