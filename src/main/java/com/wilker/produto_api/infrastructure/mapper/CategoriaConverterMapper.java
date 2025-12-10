@@ -1,8 +1,8 @@
 package com.wilker.produto_api.infrastructure.mapper;
 
 import com.wilker.produto_api.infrastructure.dto.in.CategoriaRequestDTO;
-import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseDTO;
-import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseProdutoDTO;
+import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseCompletoDTO;
+import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseResumoDTO;
 import com.wilker.produto_api.infrastructure.entity.CategoriaEntity;
 import com.wilker.produto_api.infrastructure.entity.ProdutoEntity;
 import org.mapstruct.Mapper;
@@ -19,20 +19,18 @@ public interface CategoriaConverterMapper {
     @Mapping(target = "produtos", ignore = true)
     CategoriaEntity paraCategoriaEntity(CategoriaRequestDTO categoriaRequestDTO);
 
-    CategoriaResponseProdutoDTO paraCategoriaResponseProduto(CategoriaEntity categoriaEntity);
+    CategoriaResponseResumoDTO paraCategoriaResponseResumo(CategoriaEntity categoriaEntity);
 
     @Mapping(target = "idsProdutos", source = "produtos")
-    CategoriaResponseDTO paraCategoriaResponse(CategoriaEntity categoriaEntity);
-
+    CategoriaResponseCompletoDTO paraCategoriaResponseCompleto(CategoriaEntity categoriaEntity);
 
     default Set<Long> mapProdutosToId(Set<ProdutoEntity> produtos){
-            if(produtos == null){
-                return Collections.emptySet();
-            }
-            return produtos.stream()
-                    .map(ProdutoEntity::getId)
-                    .collect(Collectors.toSet());
+        if(produtos == null){
+            return Collections.emptySet();
+        }
+        return produtos.stream()
+                .map(ProdutoEntity::getId)
+                .collect(Collectors.toSet());
 
     }
-
 }

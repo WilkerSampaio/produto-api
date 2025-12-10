@@ -7,12 +7,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {CategoriaConverterMapper.class})
 public interface ProdutoConverterMapper {
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "categoria", ignore = true)
-    ProdutoEntity paraProdutoEntity (ProdutoRequestDTO produtoRequestDTO);
+    @Mapping(target = "id", ignore = true)// Setado pelo banco
+    @Mapping(target = "categoria", ignore = true) // Setado no serviço
+    ProdutoEntity paraProdutoEntity(ProdutoRequestDTO produtoRequestDTO);
 
+    @Mapping(target = "categoriaResponseResumoDTO", source = "categoria")
     ProdutoResponseDTO paraProdutoResponse(ProdutoEntity produtoEntity);
 }
