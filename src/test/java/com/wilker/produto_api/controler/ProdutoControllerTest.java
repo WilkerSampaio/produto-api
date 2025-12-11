@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ProdutoControllerTest {
+ class ProdutoControllerTest {
 
     @Mock
     ProdutoService produtoService;

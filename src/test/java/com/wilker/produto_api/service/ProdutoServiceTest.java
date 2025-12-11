@@ -12,7 +12,6 @@ import com.wilker.produto_api.infrastructure.exception.ResourceNotFoundException
 import com.wilker.produto_api.infrastructure.mapper.ProdutoConverterMapper;
 import com.wilker.produto_api.infrastructure.repository.CategoriaRepository;
 import com.wilker.produto_api.infrastructure.repository.ProdutoRepository;
-import com.wilker.produto_api.service.ProdutoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,7 +30,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ProdutoServiceTest {
+ class ProdutoServiceTest {
 
     @Mock
     private ProdutoRepository produtoRepository;

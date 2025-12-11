@@ -5,7 +5,6 @@ import com.wilker.produto_api.infrastructure.dto.CategoriaResponseResumoDTOFixtu
 import com.wilker.produto_api.infrastructure.dto.in.CategoriaRequestDTO;
 import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseResumoDTO;
 import com.wilker.produto_api.infrastructure.entity.CategoriaEntity;
-import com.wilker.produto_api.infrastructure.exception.GlobalExceptionHandler;
 import com.wilker.produto_api.infrastructure.mapper.CategoriaConverterMapper;
 import com.wilker.produto_api.infrastructure.repository.CategoriaRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,19 +13,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import tools.jackson.databind.ObjectMapper;
-
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @ExtendWith(MockitoExtension.class)
-public class CategoriaServiceTest {
+ class CategoriaServiceTest {
 
     @Mock
     private CategoriaRepository categoriaRepository;
@@ -36,10 +30,6 @@ public class CategoriaServiceTest {
 
     @InjectMocks
     private CategoriaService categoriaService;
-
-    private MockMvc mockMvc;
-    private ObjectMapper objectMapper;
-    private String json;;
 
     private CategoriaRequestDTO categoriaRequestDTO;
     private CategoriaEntity categoriaEntity;

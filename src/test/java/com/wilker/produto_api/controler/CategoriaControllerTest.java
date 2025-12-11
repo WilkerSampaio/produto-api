@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
-public class CategoriaControllerTest {
+ class CategoriaControllerTest {
 
     @Mock
     private CategoriaService categoriaService;
