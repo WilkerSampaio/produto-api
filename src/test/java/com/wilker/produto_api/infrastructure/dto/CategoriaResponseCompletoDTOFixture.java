@@ -4,7 +4,7 @@ import com.wilker.produto_api.infrastructure.dto.out.CategoriaResponseCompletoDT
 
 import java.util.Set;
 
-public class CategoriaResponseDTOFixture {
+public class CategoriaResponseCompletoDTOFixture {
 
     public static CategoriaResponseCompletoDTO build(Long id,
                                                      String nome,
