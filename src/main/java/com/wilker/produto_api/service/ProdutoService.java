@@ -1,11 +1,10 @@
 package com.wilker.produto_api.service;
 
-import com.wilker.produto_api.infrastructure.ResourceNotFoundException;
+import com.wilker.produto_api.infrastructure.exception.ResourceNotFoundException;
 import com.wilker.produto_api.infrastructure.dto.in.ProdutoRequestDTO;
 import com.wilker.produto_api.infrastructure.dto.out.ProdutoResponseDTO;
 import com.wilker.produto_api.infrastructure.entity.CategoriaEntity;
 import com.wilker.produto_api.infrastructure.entity.ProdutoEntity;
-import com.wilker.produto_api.infrastructure.mapper.CategoriaConverterMapper; // Mantido, mas não usado diretamente no fluxo principal
 import com.wilker.produto_api.infrastructure.mapper.ProdutoConverterMapper;
 import com.wilker.produto_api.infrastructure.repository.CategoriaRepository;
 import com.wilker.produto_api.infrastructure.repository.ProdutoRepository;
@@ -19,7 +18,6 @@ public class ProdutoService {
    private final ProdutoRepository produtoRepository;
    private final ProdutoConverterMapper produtoConverterMapper;
    private final CategoriaRepository categoriaRepository;
-   // private final CategoriaConverterMapper categoriaConverterMapper; // Removido, pois o ProdutoConverterMapper cuidará disso
 
    public ProdutoResponseDTO criarProduto(ProdutoRequestDTO produtoRequestDTO){
       ProdutoEntity produtoEntity = produtoConverterMapper.paraProdutoEntity(produtoRequestDTO);
@@ -31,9 +29,6 @@ public class ProdutoService {
       produtoEntity.setCategoria(categoriaEntity);
       produtoRepository.save(produtoEntity);
 
-      // 5. Mapeia a Entidade completa (incluindo a Categoria) para o DTO de Resposta.
-      // MELHORIA: Delega-se 100% o mapeamento de saída ao ProdutoConverterMapper,
-      // que agora está configurado para incluir a CategoriaResponseProdutoDTO (veja abaixo).
       return produtoConverterMapper.paraProdutoResponse(produtoEntity);
    }
 }
