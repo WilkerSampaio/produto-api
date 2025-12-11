@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -34,14 +33,14 @@ public class ProdutoEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) return true; // mesma referência
+        if (o == null || getClass() != o.getClass()) return false; // classes diferentes
         ProdutoEntity that = (ProdutoEntity) o;
-        return id != null && Objects.equals(id, that.id);
+        return id != null && id.equals(that.id); // compara apenas o ID se não for nulo
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return id != null ? id.hashCode() : super.hashCode();
     }
 }
