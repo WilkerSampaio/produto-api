@@ -29,11 +29,11 @@ public class CategoriaEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CategoriaEntity that = (CategoriaEntity) o;
-        return id != null && Objects.equals(id, that.id);
+        return id != null && id.equals(that.id);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return id != null ? id.hashCode() : super.hashCode();
     }
 }
