@@ -18,7 +18,6 @@ public class ProdutoService {
    private final ProdutoRepository produtoRepository;
    private final ProdutoConverterMapper produtoConverterMapper;
    private final CategoriaRepository categoriaRepository;
-   // private final CategoriaConverterMapper categoriaConverterMapper; // Removido, pois o ProdutoConverterMapper cuidará disso
 
    public ProdutoResponseDTO criarProduto(ProdutoRequestDTO produtoRequestDTO){
       ProdutoEntity produtoEntity = produtoConverterMapper.paraProdutoEntity(produtoRequestDTO);
@@ -30,9 +29,6 @@ public class ProdutoService {
       produtoEntity.setCategoria(categoriaEntity);
       produtoRepository.save(produtoEntity);
 
-      // 5. Mapeia a Entidade completa (incluindo a Categoria) para o DTO de Resposta.
-      // MELHORIA: Delega-se 100% o mapeamento de saída ao ProdutoConverterMapper,
-      // que agora está configurado para incluir a CategoriaResponseProdutoDTO (veja abaixo).
       return produtoConverterMapper.paraProdutoResponse(produtoEntity);
    }
 }
