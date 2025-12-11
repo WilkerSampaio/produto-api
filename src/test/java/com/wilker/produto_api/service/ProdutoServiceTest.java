@@ -1,4 +1,4 @@
-package com.wilker.produto_api.infrastructure.service;
+package com.wilker.produto_api.service;
 
 import com.wilker.produto_api.infrastructure.dto.CategoriaResponseResumoDTOFixture;
 import com.wilker.produto_api.infrastructure.dto.ProdutoRequestDTOFixture;
@@ -34,16 +34,16 @@ import static org.mockito.Mockito.*;
 public class ProdutoServiceTest {
 
     @Mock
-    ProdutoRepository produtoRepository;
+    private ProdutoRepository produtoRepository;
 
     @Mock
-    ProdutoConverterMapper produtoConverterMapper;
+    private ProdutoConverterMapper produtoConverterMapper;
 
     @Mock
-    CategoriaRepository categoriaRepository;
+    private CategoriaRepository categoriaRepository;
 
     @InjectMocks
-    ProdutoService produtoService;
+    private ProdutoService produtoService;
 
     private ProdutoRequestDTO produtoRequestDTO;
     private ProdutoEntity produtoEntity;

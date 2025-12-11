@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
+import java.util.Collections;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,7 +31,7 @@ class CategoriaConverterMapperTest {
         categoriaEntity = CategoriaEntity.builder()
                 .id(10L)
                 .nome("Categoria Teste")
-                .produtos(null)
+                .produtos(Collections.emptySet())
                 .build();
     }
 
